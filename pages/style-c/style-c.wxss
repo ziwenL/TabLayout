@@ -1,0 +1,5 @@
+/* page/style-c/style-c.wxss */
+.root {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}

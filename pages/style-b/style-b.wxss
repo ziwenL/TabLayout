@@ -1,0 +1,7 @@
+/* page/style-b/style-b.wxss */
+.index{
+  box-sizing: border-box;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-bottom: 15rpx solid red;
+}

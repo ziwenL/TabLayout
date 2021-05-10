@@ -1,0 +1,61 @@
+/* components/tab-layout/tab-layou.wxss */
+Page {
+  height: 100%;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+movable-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper {
+  flex: 1;
+  height: 100vh;
+  overflow: scroll;
+}
+
+swiper-item {
+  flex: 1;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.tablayout {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+/* tablayout */
+.sv-tab-layout {
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.tab-group {
+  display: inline-flex;
+  flex-flow: column;
+}
+
+.tab-group-center {
+  display: table;
+  flex-flow: column;
+  margin: auto;
+}
+
+.tab-list {
+  display: flex;
+}
+
+.item-tab {
+  display: flex;
+  justify-content: center;
+}

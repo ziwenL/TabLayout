@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tab-layout":"/components/tab-layout/tab-layout",
+    "item-page":"./item-page/item-page",
+    "item-tab":"./item-tab/item-tab"
+  }
+}

@@ -1,0 +1,10 @@
+/* page/style-c/item-page/item-page.wxss */
+.item {
+  height: 150rpx;
+  background: blue;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin: 30rpx;
+}

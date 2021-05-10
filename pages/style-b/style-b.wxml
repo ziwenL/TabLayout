@@ -1,0 +1,7 @@
+<!--page/style-b/style-b.wxml-->
+<tab-layout tabList="{{tabList}}" indexAreaHeight="5" generic:item-tab="item-tab" generic:item-page="item-page"
+  isTabSpaceEqual="{{true}}" targetIndex="2" bind:pageChange="bindPageChange">
+  <view slot="index">
+    <view class="index"></view>
+  </view>
+</tab-layout>

@@ -1,0 +1,6 @@
+<!--page/style-c/style-c.wxml-->
+<view class="root">
+  <tab-layout tabList="{{tabList}}" indexAreaHeight="5" generic:item-tab="item-tab" generic:item-page="item-page"
+    isTabCenter="{{true}}" indexStyle="background:red;border-radius: 10rpx;">
+  </tab-layout>
+</view>

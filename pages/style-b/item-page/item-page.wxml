@@ -1,0 +1,2 @@
+<!--page/style-b/item-page/item-page.wxml-->
+<text>{{item}}</text>

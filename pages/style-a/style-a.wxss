@@ -1,0 +1,7 @@
+/* page/style-a/style-a.wxss */
+.index{
+  width: 60rpx;
+  height: 5rpx;
+  background: linear-gradient(to right, #00CFFF, #00A1FF);
+  border-radius: 2rpx;
+}

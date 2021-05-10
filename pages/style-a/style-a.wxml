@@ -1,0 +1,6 @@
+<!--page/style-a/style-a.wxml-->
+<tab-layout tabList="{{tabList}}" indexAreaHeight="5" generic:item-tab="item-tab" generic:item-page="item-page">
+  <view slot="index">
+    <view class="index"></view>
+  </view>
+</tab-layout>

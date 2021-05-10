@@ -1,0 +1,2 @@
+<!--page/style-c/item-tab/item-tab.wxml-->
+<view class="{{position == currentIndex ? 'tab-sel' : 'tab' }}">{{item}}</view>

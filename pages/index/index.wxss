@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  flex-flow: column;
+  color: #999999;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-bottom: 30rpx;
+}
+.root button {
+  margin: auto
+}
+
+.text-tips {
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}

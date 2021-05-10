@@ -1,0 +1,12 @@
+<!--page/style-a/item-page/item-page.wxml-->
+<view class="tips">
+  <text>item = {{item}}</text>
+  <text>position = {{position}}</text>
+  <text>currentIndex = {{currentIndex}}</text>
+</view>
+<scroll-view id="scroll-view" style="height:{{pageHeight}}px" scroll-y="true" refresher-enabled="true"
+  bindscrolltolower="onLoadMore" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+  <view class="item" wx:for="{{testData}}" wx:for-item="position">
+    <text>{{item+position}}</text>
+  </view>
+</scroll-view>

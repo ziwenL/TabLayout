@@ -1,0 +1,16 @@
+/* page/style-a/item-page/item-page.wxss */
+.tips {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.item {
+  height: 150rpx;
+  background: blue;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin: 30rpx;
+}

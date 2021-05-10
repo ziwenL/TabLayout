@@ -1,0 +1,12 @@
+<!--page/style-c/item-page/item-page.wxml-->
+<block wx:if="{{position==0}}">
+  <view class="item" wx:for="0123456789013456789">
+  </view>
+</block>
+<block wx:elif="{{position==1}}">
+  <text>文案文案文案文案</text>
+  <button class="item">按钮</button>
+</block>
+<block wx:else>
+  <view class="item"></view>
+</block>

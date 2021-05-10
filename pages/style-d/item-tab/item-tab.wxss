@@ -1,0 +1,19 @@
+/* page/style-d/item-tab/item-tab.wxss */
+.tab {
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #333333;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.tab-sel {
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #00A1FF;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}

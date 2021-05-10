@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view>
+  <view class="root" wx:for="{{styleList}}" wx:key="*this">
+    <button bindtap="tapStyle" data-position="{{index}}">{{item.title}}</button>
+    <text class="text-tips">包含特点:</text>
+    <text>{{item.sub}}</text>
+  </view>
+</view>

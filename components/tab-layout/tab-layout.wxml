@@ -1,0 +1,34 @@
+<!--components/tab-layout/tab-layou.wxml-->
+<view class="tablayout" id="tab-layout">
+  <!-- tablayout -->
+  <scroll-view class="sv-tab-layout" scroll-x="true" scroll-with-animation="true" scroll-left="{{tabLayoutScrollLeft}}">
+    <view class="{{isTabCenter?'tab-group-center':'tab-group'}}">
+      <!-- tab 显示区域 -->
+      <view class="tab-list" id="tab-list">
+        <view class="item-tab" id="tab{{index}}" wx:for="{{tabList}}" wx:key="*this" bindtap="tapTab"
+          data-index="{{index}}" style="width:{{isTabSpaceEqual?tabWidth:auto}}px">
+          <!-- tab -->
+          <item-tab item="{{item}}" position="{{index}}" currentIndex="{{currentIndex}}"></item-tab>
+        </view>
+      </view>
+      <!-- index 活动区域（应与 tab-list 内容总宽度等宽）-->
+      <movable-area style="width:{{indexAreaWidth}}px;height:{{indexAreaHeight}}px;{{indexAreaStyle}}">
+        <!-- index 显示区域（应与 item-tab 等宽）-->
+        <movable-view class="tab-index" id="tab-index"
+          style="width:{{tabWidth}}px;height:{{indexAreaHeight}}px;{{indexStyle}}" x="{{tabIndexScrollX}}"
+          direction="horizontal" disabled="true">
+          <!-- index -->
+          <slot name="index"></slot>
+          <!-- <text>text</text> -->
+        </movable-view>
+      </movable-area>
+    </view>
+  </scroll-view>
+  <!-- swiper -->
+  <swiper current='{{targetIndex}}' bindchange="onChangePage">
+    <swiper-item wx:for="{{tabList}}" wx:key="*this" catchtouchmove="{{isStopTouchMove?'stopTouchMove':''}}">
+      <item-page item="{{item}}" position="{{index}}" currentIndex="{{targetIndex}}" bind:updata="onPageUpdata">
+      </item-page>
+    </swiper-item>
+  </swiper>
+</view>
