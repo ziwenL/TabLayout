@@ -1,5 +1,4 @@
 <!--page/style-d/style-d.wxml-->
 <tab-layout tabList="{{tabList}}" indexAreaHeight="32" generic:item-tab="item-tab" generic:item-page="item-page"
   indexAreaStyle="position:initial" indexStyle="background:#4D999999;border-radius: 10rpx;" isStopTouchMove="{{true}}">
-
 </tab-layout>

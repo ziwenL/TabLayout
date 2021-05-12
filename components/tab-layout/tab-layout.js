@@ -61,7 +61,7 @@ Component({
       value: false
     },
     /**
-     * 是否根据屏幕宽度等分 Tab 宽度 ( 适用于 Tab 内容长度一致时 )
+     * 是否根据组件宽度等分 Tab 宽度
      */
     isTabSpaceEqual: {
       type: Boolean,
