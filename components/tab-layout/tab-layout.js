@@ -15,7 +15,14 @@ Component({
      */
     tabList: {
       type: Array,
-      value: []
+      value: [],
+      observer: function (newVal) {
+        if (this.data.tabList.length != 0 &&
+          this.data.tabWidthList.length == 0 &&
+          !this.data.isInit) {
+          this.init()
+        }
+      }
     },
     /**
      * Tab 是否居中显示
@@ -74,6 +81,10 @@ Component({
    */
   data: {
     /**
+     * 是否初始化
+     */
+    isInit: false,
+    /**
      * Tab 变动前的下标
      */
     currentIndex: 0,
@@ -101,6 +112,14 @@ Component({
      * Index 横向移动位置
      */
     tabIndexScrollX: 0,
+    /**
+     * 所有 Tab 中的最小宽度
+     */
+    minTabWidth: 0,
+    /**
+     * Index 的偏移量（针对于当前 Tab 而言）
+     */
+    indexOffset: 0
   },
 
   /**
@@ -109,6 +128,18 @@ Component({
   lifetimes: {
     attached: function () {
       // 获取组件相关宽度
+      if (this.data.tabList.length != 0 && !this.data.isInit) {
+        this.init()
+      }
+    },
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    init: function () {
+      this.data.isInit = true
       var that = this
       var indexAreaWidth = that.data.indexAreaWidth
       var tabList = that.data.tabList
@@ -116,6 +147,8 @@ Component({
       var targetIndex = that.data.targetIndex
       var isTabSpaceEqual = that.data.isTabSpaceEqual
       var tabLayoutWidth = that.data.tabLayoutWidth
+      var minTabWidth = that.data.minTabWidth
+      var indexStyle = that.data.indexStyle
       var query = this.createSelectorQuery();
       // 选择 TabLayout 
       query.select('#tab-layout').boundingClientRect()
@@ -126,10 +159,10 @@ Component({
       query.exec(function (rect) {
         // 当前 TabLayout 宽度 
         tabLayoutWidth = rect[0].width
-        console.log("tabLayoutWidth = " + tabLayoutWidth)
         if (isTabSpaceEqual) {
           // Tab 宽度等分
           var tabWidth = tabLayoutWidth / tabList.length
+          minTabWidth = tabWidth
           tabList.forEach(function (item, index) {
             indexAreaWidth += tabWidth
             tabWidthList.push(tabWidth)
@@ -139,6 +172,9 @@ Component({
             if (index != 0) {
               // 记录所有 Tab 宽度
               var tabWidth = item.right - item.left
+              if (minTabWidth == 0 || minTabWidth > tabWidth) {
+                minTabWidth = tabWidth
+              }
               indexAreaWidth += tabWidth
               tabWidthList.push(tabWidth)
             }
@@ -146,22 +182,30 @@ Component({
         }
         that.setData({
           tabLayoutWidth: tabLayoutWidth,
-          tabWidth: tabWidthList[that.data.currentIndex],
+          minTabWidth: minTabWidth,
+          tabWidth: that.isEmpty(indexStyle) ? minTabWidth : tabWidthList[that.data.currentIndex],
           tabWidthList: tabWidthList,
           indexAreaWidth: indexAreaWidth,
         })
-        // 跳转指定页面
-        if (targetIndex != 0) {
+        if (targetIndex == 0) {
+          if (that.isEmpty(indexStyle)) {
+            //设置 Index 偏移量
+            var currentTabWidth = tabWidthList[0]
+            if (currentTabWidth != minTabWidth) {
+              var indexOffset = (currentTabWidth - minTabWidth) / 2
+              that.setData({
+                indexOffset: indexOffset,
+                tabIndexScrollX: indexOffset
+              })
+            }
+          }
+        } else {
+          // 跳转指定页面
           that.handlePageChange(targetIndex)
         }
       })
     },
-  },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
     /**
      * tab 点击事件
      */
@@ -202,6 +246,8 @@ Component({
       var tabWidthList = this.data.tabWidthList
       var tabIndexScrollX = this.data.tabIndexScrollX
       var tabList = this.data.tabList
+      var minTabWidth = this.data.minTabWidth
+      var indexStyle = this.data.indexStyle
       /**
        * 计算此次 Page 切换 Index 需要移动的距离 index_dx
        */
@@ -218,6 +264,15 @@ Component({
           }
         }
       })
+      /**
+       * 当采用 slot 方式设置 Index 时，固定 Index 显示区域宽度避免滑动时跳动
+       */
+      if (this.isEmpty(indexStyle)) {
+        var targetTabWidth = tabWidthList[targetIndex]
+        var indexOffset = this.data.indexOffset
+        index_dx = index_dx + ((targetTabWidth - minTabWidth) / 2) - indexOffset
+        this.data.indexOffset = ((targetTabWidth - minTabWidth) / 2)
+      }
       /**
        * 计算此次 Page 切换为了完全显示当前选中 Tab , TabLayout 需要横向滚动的距离 tabLayoutScrollLeft
        */
@@ -245,7 +300,7 @@ Component({
         }
       }
       this.setData({
-        tabWidth: tabWidthList[targetIndex],
+        tabWidth: this.isEmpty(indexStyle) ? this.data.minTabWidth : tabWidthList[targetIndex],
         tabIndexScrollX: tabIndexScrollX + index_dx,
         currentIndex: targetIndex,
         targetIndex: targetIndex,
@@ -266,6 +321,17 @@ Component({
         targetIndex: this.data.targetIndex,
         tabList: this.data.tabList
       })
+    },
+
+    /**
+     *  String 对象判空
+     */
+    isEmpty(obj) {
+      if (typeof obj === 'undefined' || obj == null || obj === '') {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 })
