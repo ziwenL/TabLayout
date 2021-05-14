@@ -18,13 +18,10 @@ movable-view {
 
 swiper {
   flex: 1;
-  height: 100vh;
-  overflow: scroll;
 }
 
 swiper-item {
   flex: 1;
-  height: 100vh;
   overflow: scroll;
 }
 

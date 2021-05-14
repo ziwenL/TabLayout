@@ -89,10 +89,10 @@ Component({
      */
     onRefresh: function (e) {
       var that = this
-      var testData=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      var testData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
       setTimeout(function () {
         that.setData({
-          testData:testData,
+          testData: testData,
           triggered: false
         })
         that.triggerEvent("updata")
@@ -103,10 +103,13 @@ Component({
      * 加载更多
      */
     onLoadMore: function (e) {
+      var testData = this.data.testData
+      if (testData.length > 20) {
+        return
+      }
       wx.showLoading({
         title: '加载中',
       })
-      var testData = this.data.testData
       testData.push(testData[testData.length - 1] + 1)
       testData.push(testData[testData.length - 1] + 1)
       testData.push(testData[testData.length - 1] + 1)
