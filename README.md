@@ -36,6 +36,10 @@
 | isStopTouchMove | boolean |false|否|是否禁止左右滑动， true 禁止 false 允许|
 | isTabSpaceEqual | boolean |false|否|是否根据组件宽度等分 Tab 宽度|
 | pageChange | eventhandle | |否|页面切换监听事件|
+| index | slot(插槽) | |否|自定义 Index view 插槽|
+| subContent | slot(插槽) | |否|位于 Tab 与 Page 之间的插槽，不在 Tab/Page 内，即不会随着 Tab/Page 变动或切换|
+| item-tab | generic(抽象节点) | |是|插入自定义 Tab View 的抽象节点，决定 Tab 样式与内容|
+| item-page | generic(抽象节点) | |是|插入自定义 Page View 的抽象节点，决定 Page 样式与内容|
 
 
 ## 效果演示
@@ -43,7 +47,7 @@
 ![效果演示 -- 常见样式](https://img-blog.csdnimg.cn/20210511160509564.gif)
 ![效果演示 -- Tab 宽度等分](https://img-blog.csdnimg.cn/20210511160659754.gif)
 ![效果演示 -- Page 内容不一致](https://img-blog.csdnimg.cn/20210511161009462.gif)
-![效果演示 -- Index 覆盖 Tab](https://img-blog.csdnimg.cn/20210511161148173.gif)
+![效果演示 -- Index 覆盖 Tab](https://img-blog.csdnimg.cn/20210517110434660.gif)
 
 ## 使用步骤
 <p><b>1.</b> 复制 <a href="https://github.com/ziwenL/TabLayout/tree/main/components/tab-layout" rel="nofollow">tab-layout</a> 组件(即 tab-layout.js、tab-layout.json、tab-layout.wxml 和 tab-layout.wxss 文件)到项目中</p>
