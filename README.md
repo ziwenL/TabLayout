@@ -138,7 +138,7 @@ Component({
 <p>　　为自定义组件 item-page 设置一个懒加载标志位暂定为 isLoadData ，通过订阅自定义属性 currentIndex ，在 currentIndex 属性变化或组件进行到 attached 生命周期时，通过判断 isLoadData 和 currentIndex 是否与 position 相等来进行数据加载并调整标志位<a href="https://github.com/ziwenL/TabLayout/blob/main/pages/style-a/item-page/item-page.js" rel="nofollow">（点击跳转查看参考写法）</a></p>
 
 ## 最后
-<p>　　小程序代码片段：https://developers.weixin.qq.com/s/d9UT7emF7Aq0</p>
+<p>　　小程序代码片段：https://developers.weixin.qq.com/s/KnxMSmmx7Yqh</p>
 <h3>About Me<h3>
 <ul>
 <li>
