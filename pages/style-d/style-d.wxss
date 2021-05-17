@@ -1,1 +1,11 @@
 /* page/style-d/style-d.wxss */
+.sub-content {
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  color: white;
+  background: chocolate;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin: 20rpx;
+}

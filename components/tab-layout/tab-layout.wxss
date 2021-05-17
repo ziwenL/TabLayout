@@ -43,9 +43,9 @@ swiper-item {
 }
 
 .tab-group-center {
-  display: table;
+  display: flex;
   flex-flow: column;
-  margin: auto;
+  align-items: center;
 }
 
 .tab-list {

@@ -16,7 +16,7 @@ Page({
       },
       {
         title: "Index 覆盖 Tab",
-        sub: "Index 悬浮覆盖在 Tab 上;\n Page 禁止左右滑动;"
+        sub: "Index 悬浮覆盖在 Tab 上;\nTab 与 Index 之间插入固定 View;\n Page 禁止左右滑动;"
       },
     ]
   },

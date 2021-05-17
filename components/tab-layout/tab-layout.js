@@ -73,6 +73,13 @@ Component({
     isTabSpaceEqual: {
       type: Boolean,
       value: false
+    },
+    /**
+     * 是否设置 Index 悬浮在 Tab 上
+     */
+    isSetIndexPositionAbsolute:{
+      type: Boolean,
+      value: false
     }
   },
 
