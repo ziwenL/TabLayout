@@ -22,7 +22,6 @@ swiper {
 
 swiper-item {
   flex: 1;
-  overflow: scroll;
 }
 
 .tablayout {
