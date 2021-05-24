@@ -22,6 +22,7 @@
           <item-tab item="{{item}}" position="{{index}}" currentIndex="{{currentIndex}}"></item-tab>
         </view>
       </view>
+      <slot name="subTab"></slot>
     </view>
   </scroll-view>
   <slot name="subContent"></slot>
